@@ -1,0 +1,1024 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600&family=Poppins:wght@300;400;500;600&display=swap');
+
+/* ==========================================
+   Color Variables
+========================================== */
+
+:root{
+
+    --bg-color:#030712;
+    --surface:#111827;
+    --surface-2:#1e293b;
+
+    --card-color:rgba(15,23,42,.90);
+    --card-dark:rgba(10,18,35,.95);
+
+    --primary:#38bdf8;
+    --secondary:#2563eb;
+
+    --text:#f8fafc;
+    --text-light:#94a3b8;
+
+    --border:rgba(56,189,248,.18);
+
+    --input-bg:#0f172a;
+
+    --shadow:0 12px 30px rgba(0,0,0,.35);
+
+    --radius:18px;
+
+}
+
+/* ==========================================
+   Light Theme
+========================================== */
+
+body.light-mode{
+
+    --bg-color:#f4f7fb;
+    --surface:#ffffff;
+    --surface-2:#eef4ff;
+
+    --card-color:rgba(255,255,255,.95);
+    --card-dark:#ffffff;
+
+    --primary:#2563eb;
+    --secondary:#3b82f6;
+
+    --text:#111827;
+    --text-light:#64748b;
+
+    --border:rgba(37,99,235,.15);
+
+    --input-bg:#f8fafc;
+
+    --shadow:0 15px 35px rgba(15,23,42,.08);
+
+}
+
+/* ==========================================
+   Reset
+========================================== */
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:
+    radial-gradient(circle at top left,
+    rgba(56,189,248,.10),
+    transparent 28%),
+
+    radial-gradient(circle at bottom right,
+    rgba(37,99,235,.10),
+    transparent 30%),
+
+    var(--bg-color);
+
+    color:var(--text);
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+    padding:30px;
+
+    transition:.35s ease;
+
+}
+
+/* ==========================================
+   Background Glow
+========================================== */
+
+.background-orb{
+
+    position:fixed;
+
+    border-radius:50%;
+
+    filter:blur(80px);
+
+    opacity:.25;
+
+    pointer-events:none;
+
+    z-index:-1;
+
+}
+
+.orb-one{
+
+    width:260px;
+    height:260px;
+
+    top:-80px;
+    left:-80px;
+
+    background:var(--primary);
+
+    animation:floatOne 8s ease-in-out infinite;
+
+}
+
+.orb-two{
+
+    width:320px;
+    height:320px;
+
+    right:-100px;
+    bottom:-100px;
+
+    background:var(--secondary);
+
+    animation:floatTwo 10s ease-in-out infinite;
+
+}
+
+@keyframes floatOne{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-20px);
+
+    }
+
+}
+
+@keyframes floatTwo{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(20px);
+
+    }
+
+}
+
+/* ==========================================
+   Main Container
+========================================== */
+
+.app-shell{
+
+    width:min(1100px,95%);
+
+    margin:auto;
+
+    padding:35px;
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--card-color),
+        var(--card-dark)
+    );
+
+    border:1px solid var(--border);
+
+    border-radius:24px;
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:var(--shadow);
+
+    transition:.35s ease;
+
+}
+
+/* ==========================================
+   Header
+========================================== */
+
+.hero{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:25px;
+
+    margin-bottom:35px;
+
+}
+
+.eyebrow{
+
+    font-size:.85rem;
+
+    color:var(--primary);
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    font-weight:500;
+
+    margin-bottom:10px;
+
+}
+
+.hero h1{
+
+    font-family:'Orbitron',sans-serif;
+
+    font-size:clamp(2rem,5vw,3rem);
+
+    font-weight:600;
+
+    line-height:1.2;
+
+    margin-bottom:14px;
+
+    color:var(--text);
+
+}
+
+.lead{
+
+    max-width:720px;
+
+    color:var(--text-light);
+
+    line-height:1.8;
+
+}
+
+/* ==========================================
+   Theme Button
+========================================== */
+
+.theme-toggle{
+
+    padding:11px 20px;
+
+    border-radius:50px;
+
+    border:1px solid var(--border);
+
+    background:transparent;
+
+    color:var(--text);
+
+    cursor:pointer;
+
+    font-weight:500;
+
+    transition:.30s;
+
+}
+
+.theme-toggle:hover{
+
+    background:var(--primary);
+
+    color:white;
+
+    border-color:var(--primary);
+
+}
+
+/* ==========================================
+   Navigation Tabs
+========================================== */
+
+.tabs{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+    margin-bottom:30px;
+
+}
+
+.tab{
+
+    padding:12px 22px;
+
+    border-radius:40px;
+
+    border:1px solid var(--border);
+
+    background:transparent;
+
+    color:var(--text);
+
+    cursor:pointer;
+
+    transition:.30s;
+
+}
+
+.tab:hover{
+
+    transform:translateY(-2px);
+
+    border-color:var(--primary);
+
+}
+
+.tab.active{
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    color:#ffffff;
+
+    border:none;
+
+}
+
+/* ==========================================
+   Panels
+========================================== */
+
+.panel{
+
+    display:none;
+
+    animation:fade .35s ease;
+
+}
+
+.panel.active{
+
+    display:block;
+
+}
+
+@keyframes fade{
+
+    from{
+
+        opacity:0;
+        transform:translateY(10px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+.panel h2{
+
+    margin-bottom:20px;
+
+    font-size:1.45rem;
+
+    font-weight:600;
+
+}
+/* ==========================================
+   Forms
+========================================== */
+
+.upload-form,
+.admin-form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+label{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+    font-size:.95rem;
+
+    font-weight:500;
+
+    color:var(--text);
+
+}
+
+/* ==========================================
+   Inputs
+========================================== */
+
+input,
+select,
+textarea,
+button{
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+input,
+select,
+textarea{
+
+    width:100%;
+
+    padding:13px 15px;
+
+    background:var(--input-bg);
+
+    color:var(--text);
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    outline:none;
+
+    transition:.25s ease;
+
+}
+
+input::placeholder,
+textarea::placeholder{
+
+    color:var(--text-light);
+
+}
+
+select{
+
+    cursor:pointer;
+
+}
+
+textarea{
+
+    resize:vertical;
+
+    min-height:130px;
+
+}
+
+/* ==========================================
+   Focus Effect
+========================================== */
+
+input:focus,
+select:focus,
+textarea:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 3px rgba(56,189,248,.15);
+
+}
+
+/* ==========================================
+   Form Grid
+========================================== */
+
+.form-row{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+}
+
+/* ==========================================
+   Buttons
+========================================== */
+
+button[type="submit"]{
+
+    padding:13px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    color:white;
+
+    font-size:.96rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.30s ease;
+
+}
+
+button[type="submit"]:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 20px rgba(37,99,235,.25);
+
+}
+
+button[type="submit"]:active{
+
+    transform:scale(.98);
+
+}
+
+/* ==========================================
+   Status Messages
+========================================== */
+
+.form-message{
+
+    min-height:22px;
+
+    margin-top:4px;
+
+    color:var(--primary);
+
+    font-size:.9rem;
+
+}
+
+/* ==========================================
+   Search Toolbar
+========================================== */
+
+.toolbar{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+    margin-bottom:30px;
+
+}
+
+.toolbar input{
+
+    flex:2;
+
+}
+
+.toolbar select{
+
+    flex:1;
+
+}
+
+/* ==========================================
+   Project Grid
+========================================== */
+
+.project-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:22px;
+
+}
+
+/* ==========================================
+   Project Card
+========================================== */
+
+.project-card{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+    padding:22px;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    transition:.30s ease;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+
+}
+
+.project-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:var(--primary);
+
+    box-shadow:0 15px 28px rgba(0,0,0,.18);
+
+}
+
+/* ==========================================
+   Card Title
+========================================== */
+
+.project-card h3{
+
+    font-size:1.15rem;
+
+    font-weight:600;
+
+    color:var(--text);
+
+    margin-bottom:4px;
+
+}
+
+/* ==========================================
+   Card Text
+========================================== */
+
+.project-card p{
+
+    color:var(--text-light);
+
+    line-height:1.7;
+
+    font-size:.95rem;
+
+}
+
+.project-card strong{
+
+    color:var(--text);
+
+    font-weight:600;
+
+}
+
+/* ==========================================
+   Technology Tags
+========================================== */
+
+.tag-row{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-top:auto;
+
+}
+
+.tag{
+
+    padding:6px 12px;
+
+    border-radius:50px;
+
+    background:rgba(56,189,248,.10);
+
+    border:1px solid rgba(56,189,248,.18);
+
+    color:var(--primary);
+
+    font-size:.82rem;
+
+    font-weight:500;
+
+}
+
+/* ==========================================
+   Empty State
+========================================== */
+
+.empty-state{
+
+    text-align:center;
+
+    padding:40px 20px;
+
+    border:2px dashed var(--border);
+
+    border-radius:16px;
+
+    color:var(--text-light);
+
+    background:rgba(255,255,255,.02);
+
+}
+/* ==========================================
+   Admin Card
+========================================== */
+
+.admin-card{
+
+    max-width:500px;
+
+    margin:0 auto;
+
+    padding:30px;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.admin-card h2{
+
+    margin-bottom:12px;
+
+    color:var(--text);
+
+    font-size:1.5rem;
+
+    font-weight:600;
+
+}
+
+.admin-card p{
+
+    margin-bottom:20px;
+
+    color:var(--text-light);
+
+    line-height:1.7;
+
+}
+
+/* ==========================================
+   File Upload
+========================================== */
+
+input[type="file"]{
+
+    padding:12px;
+
+    cursor:pointer;
+
+}
+
+input[type="file"]::file-selector-button{
+
+    margin-right:15px;
+
+    padding:8px 14px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:var(--primary);
+
+    color:#fff;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+input[type="file"]::file-selector-button:hover{
+
+    background:var(--secondary);
+
+}
+body,
+.app-shell,
+.project-card,
+.admin-card,
+input,
+textarea,
+select,
+button,
+.tab{
+
+    transition:all .3s ease;
+
+}
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:var(--bg-color);
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--primary);
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:var(--secondary);
+
+}
+
+::selection{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+
+@media(max-width:900px){
+
+    body{
+
+        padding:20px;
+
+    }
+
+    .hero{
+
+        flex-direction:column;
+
+        gap:20px;
+
+    }
+
+    .theme-toggle{
+
+        align-self:flex-start;
+
+    }
+
+    .form-row{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+
+@media(max-width:650px){
+
+    body{
+
+        padding:15px;
+
+    }
+
+    .app-shell{
+
+        padding:22px;
+
+    }
+
+    .hero h1{
+
+        font-size:2rem;
+
+    }
+
+    .lead{
+
+        font-size:.95rem;
+
+    }
+
+    .tabs{
+
+        flex-direction:column;
+
+    }
+
+    .tab{
+
+        width:100%;
+
+        text-align:center;
+
+    }
+
+    .toolbar{
+
+        flex-direction:column;
+
+    }
+
+    .toolbar input,
+    .toolbar select{
+
+        width:100%;
+
+    }
+
+    .project-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .project-card{
+
+        padding:18px;
+
+    }
+
+    .admin-card{
+
+        padding:22px;
+
+    }
+
+}
+
+
+@media(max-width:420px){
+
+    .hero h1{
+
+        font-size:1.7rem;
+
+    }
+
+    .eyebrow{
+
+        font-size:.75rem;
+
+    }
+
+    button[type="submit"]{
+
+        width:100%;
+
+    }
+
+}
+
+input:hover,
+select:hover,
+textarea:hover{
+
+    border-color:rgba(56,189,248,.35);
+
+}
+
+.project-card:hover .tag{
+
+    background:rgba(56,189,248,.18);
+
+}
+
