@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Project Repository</title>
+
+    <meta name="description"
+        content="Student Project Repository for uploading and managing academic projects.">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Background Glow -->
+    <div class="background-orb orb-one"></div>
+    <div class="background-orb orb-two"></div>
+
+    <main class="app-shell">
+
+        <!-- Header -->
+
+        <header class="hero">
+
+    <div>
+
+        <p class="eyebrow">Student Project Repository</p>
+
+        <h1>Academic Project Repository</h1>
+
+        <p class="lead">
+            A centralized platform to upload, manage, and discover student academic projects.
+        </p>
+
+    </div>
+
+    <button id="themeToggle"
+            class="theme-toggle"
+            type="button">
+        🌙 Dark Mode
+    </button>
+
+</header>
+
+        <!-- Navigation -->
+
+        <nav class="tabs">
+
+            <button class="tab active" data-target="upload">
+                <i class="fa-solid fa-upload"></i>
+                Upload Project
+            </button>
+
+            <button class="tab" data-target="browse">
+                <i class="fa-solid fa-folder-open"></i>
+                Browse Repository
+            </button>
+
+            <button class="tab" data-target="admin">
+                <i class="fa-solid fa-user-shield"></i>
+                Admin Login
+            </button>
+
+        </nav>
+
+        <!-- Upload Project -->
+
+        <section class="panel active" id="upload">
+
+            <h2>
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                Upload New Project
+            </h2>
+
+            <form id="uploadForm" class="upload-form">
+
+                <div class="form-row">
+
+                    <label>
+                        Project Title 
+                        <input type="text" id="projectTitle" placeholder="Enter project title" required>
+                    </label>
+
+                    <label>
+                        Academic Year 
+                        <input type="text" id="academicYear" placeholder="2024-25" required>
+                    </label>
+
+                </div>
+
+                <div class="form-row">
+
+                    <label>
+                        Project Domain *
+                        <select id="domain" required>
+
+                            <option value="">Select Domain</option>
+                            <option value="Web Development">Web Development</option>
+                            <option value="Mobile App">Mobile Application</option>
+                            <option value="AI/ML">Artificial Intelligence</option>
+                            <option value="IT">Internet of Things</option>
+                            <option value="Cybersecurity">Cyber Security</option>
+                            <option value="Blockchain">Blockchain</option>
+                            <option value="Other">Other</option>
+
+                        </select>
+                    </label>
+
+                    <label>
+                        Technology Stack 
+                        <input type="text" id="technology"
+                            placeholder="HTML, CSS, JavaScript, Python..." required>
+                    </label>
+
+                </div>
+
+                <label>
+                    Faculty Guide 
+                    <input type="text" id="guide" placeholder="Guide Name" required>
+                </label>
+
+                <label>
+                    Project Abstract 
+                    <textarea id="abstract" rows="5"
+                        placeholder="Write a brief description of your project..." required></textarea>
+                </label>
+
+                <div class="form-row">
+
+                    <label>
+                        Team Members
+                        <input type="text" id="teamMembers"
+                            placeholder="Member 1, Member 2">
+                    </label>
+
+                    <label>
+                        Email Address 
+                        <input type="email" id="email"
+                            placeholder="example@gmail.com" required>
+                    </label>
+
+                </div>
+
+                <label>
+                    Upload Project Files
+                    <input type="file" id="projectFiles" multiple
+                        accept=".pdf,.doc,.docx,.zip,.jpg,.jpeg,.png">
+                </label>
+
+                <button type="submit">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    Submit Project
+                </button>
+
+                <p id="uploadMessage" class="form-message"></p>
+
+            </form>
+
+        </section>
+                <!-- Browse Repository -->
+
+        <section class="panel" id="browse">
+
+            <h2>
+                <i class="fa-solid fa-folder-open"></i>
+                Browse Repository
+            </h2>
+
+            <div class="toolbar">
+
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Search by project title, technology or guide">
+
+                <select id="filterDomainBrowse">
+
+                    <option value="">All Domains</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="Mobile App">Mobile Application</option>
+                    <option value="AI/ML">Artificial Intelligence</option>
+                    <option value="IoT">Internet of Things</option>
+                    <option value="Cybersecurity">Cyber Security</option>
+                    <option value="Blockchain">Blockchain</option>
+                    <option value="Other">Other</option>
+
+                </select>
+
+                <select id="filterYearBrowse">
+
+                    <option value="">All Years</option>
+                    <option value="2024-25">2024-25</option>
+                    <option value="2023-24">2023-24</option>
+                    <option value="2022-23">2022-23</option>
+
+                </select>
+
+                <select id="filterGuideBrowse">
+
+                    <option value="">All Guides</option>
+
+                </select>
+
+            </div>
+
+            <div id="projectGrid" class="project-grid"></div>
+
+        </section>
+
+        <!-- Admin Login -->
+
+        <section class="panel" id="admin">
+
+            <div class="admin-card">
+
+                <h2>
+                    <i class="fa-solid fa-user-shield"></i>
+                    Administrator Login
+                </h2>
+
+                <p>
+                    Enter your administrator credentials to manage
+                    student project submissions.
+                </p>
+
+                <form id="adminForm" class="admin-form">
+
+                    <label>
+
+                        Username
+
+                        <input
+                            type="text"
+                            id="adminUsername"
+                            placeholder="Enter username"
+                            required>
+
+                    </label>
+
+                    <label>
+
+                        Password
+
+                        <input
+                            type="password"
+                            id="adminPassword"
+                            placeholder="Enter password"
+                            required>
+
+                    </label>
+
+                    <button type="submit">
+
+                        <i class="fa-solid fa-right-to-bracket"></i>
+
+                        Login
+
+                    </button>
+
+                    <p id="adminMessage" class="form-message"></p>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
