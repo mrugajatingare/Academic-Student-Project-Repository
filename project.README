@@ -1,0 +1,30 @@
+# PHP page deployment guide
+
+Files created:
+- index.php
+- styles.css
+- script.js
+
+## What it includes
+- PHP form handling
+- Black background and yellow text
+- Yellow input styling
+- Dark mode and light mode toggle
+- Small JavaScript animation effect
+
+## Upload to a free PHP host
+Use a host that supports PHP, such as:
+- InfinityFree
+- 000webhost
+- FreeHostia
+
+### Upload steps
+1. Create an account on a free PHP host.
+2. Create a new website or project.
+3. Upload these files to the public web folder:
+   - index.php
+   - styles.css
+   - script.js
+4. Open your website URL.
+
+> Note: PHP pages need a real PHP server. GitHub Pages will not run PHP.
